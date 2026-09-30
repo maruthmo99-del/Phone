@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>Bosetech Phone Plug | Available Smartphones</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{--bg:#f4f5f9;--card:#fff;--tx:#1b1f3b;--mu:#6b7280;--bd:#e5e7eb;--red:#e63b2e;--gr:#16a34a;--or:#f28c1b;--hd:#1b1f3b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1220;--card:#1a1e33;--tx:#eef0f8;--mu:#9aa1b5;--bd:#2b3050;--hd:#0a0c18}}
+:root[data-theme="dark"]{--bg:#0f1220;--card:#1a1e33;--tx:#eef0f8;--mu:#9aa1b5;--bd:#2b3050;--hd:#0a0c18}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header{background:var(--hd);color:#fff;padding:22px 16px}
+header h1{margin:0;font-size:24px}header p{margin:4px 0 0;opacity:.8;font-size:14px}
+.wrap{max-width:1000px;margin:0 auto;padding:14px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+input{flex:1 1 200px;padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:15px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;width:100%}
+.chip{border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:7px 14px;border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--red);color:#fff;border-color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:6px}
+.br{font-size:11px;font-weight:700;color:var(--mu);letter-spacing:.5px}
+.nm{font-size:18px;font-weight:700;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tag{background:var(--red);color:#fff;font-size:10px;padding:3px 8px;border-radius:10px;white-space:nowrap}
+.sp{font-size:13px;color:var(--mu);line-height:1.5}.sp b{color:var(--tx)}
+.pr{border-top:1px solid var(--bd);margin-top:6px;padding-top:10px;display:flex;justify-content:space-between;align-items:flex-end}
+.pr small{display:block;color:var(--mu);font-size:11px}
+.dep{font-size:20px;font-weight:800}.dep.s{color:var(--gr)}.dep.n{color:var(--or)}
+.old{text-decoration:line-through;color:var(--mu);font-size:12px;margin-right:6px}
+.dl{font-size:16px;font-weight:700;text-align:right}
+.off{font-size:12px;color:var(--gr);font-weight:600}
+.empty{text-align:center;color:var(--mu);padding:30px}
+a.btn{display:block;text-align:center;background:var(--red);color:#fff;text-decoration:none;font-weight:700;padding:11px;border-radius:10px;margin-top:8px;font-size:15px}a.btn.h{display:inline-block;margin-top:12px;padding:10px 20px;background:var(--or)}
+#t{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:#111;color:#fff;padding:10px 16px;border-radius:10px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%;text-align:center}#t.on{opacity:1}
+.orow{display:flex;align-items:center;gap:10px;margin-top:8px}.orow a.btn{flex:1;margin-top:0}.rf{font-size:12px;font-weight:700;color:var(--tx);background:var(--bg);border:1px dashed var(--red);border-radius:8px;padding:6px 8px;text-align:center;line-height:1.3;white-space:nowrap}
+.hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}.hrow a.btn.h{margin-top:0}.hrow .rf{color:#fff;background:transparent;border-color:#fff}
+footer{text-align:center;color:var(--mu);font-size:12px;padding:16px}
+</style></head><body>
+<header><div style="font-size:13px;font-weight:700;letter-spacing:1px;color:var(--or);margin-bottom:4px">BOSETECH PHONE PLUG</div><h1>Available Smartphones</h1><p id="count"></p><div class="hrow"><a class="btn h" href="https://eazy2get.com/?ref=REF011" target="_blank" rel="noopener" onclick="cp()">Place your order</a><span class="rf">USE REF011 as referral</span></div></header>
+<div class="wrap">
+<div class="bar"><input id="q" placeholder="Search device, e.g. A3X or 128GB" oninput="draw()"><div class="chips" id="chips"></div></div>
+<div class="grid" id="g"></div>
+</div>
+<div id="t">Referral code REF011 copied. Paste it at checkout if it is not filled in automatically.</div>
+<footer>Deposit and daily payment are in KES. Prices and stock subject to change. Contact us to reserve your device.</footer>
+<script>
+var D=[
+["SAFARICOM","Neon Ultra 2","4GB / 64GB","3,750mAh (removable)","6.5\" IPS LCD",1000,55,null],
+["VIVO","Y05","4GB / 64GB","6,500mAh, 15W","6.74\" HD+, 120Hz",1500,110,2000],
+["VIVO","Y11d","4GB / 128GB","6,500mAh, 44W","6.74\" HD+, 120Hz",2500,125,null],
+["VIVO","Y21d","4GB / 128GB","6,500mAh, 44W","6.68\" HD+, 90Hz",2600,130,null],
+["OPPO","A3X","4GB / 64GB","5,100mAh, 45W","6.67\" IPS, 90Hz",1500,85,2900],
+["OPPO","A3X","4GB / 128GB","5,100mAh, 45W","6.67\" IPS, 90Hz",2000,100,3600],
+["OPPO","A3","8GB / 256GB","5,100mAh, 45W","6.67\" HD+, 90Hz",3200,160,6400],
+["OPPO","A5","6GB / 128GB","6,000mAh, 45W","6.67\" IPS LCD",2600,130,5200],
+["OPPO","Reno 13F 4G","8GB / 256GB","5,800mAh, 45W","6.67\" AMOLED, 120Hz",4300,210,8000],
+["ZTE","A36","2GB / 64GB","5,000mAh","6.75\" HD+ IPS",1000,80,1500],
+["ZTE","A36","4GB / 64GB","5,000mAh","6.75\" IPS LCD",1300,75,1500],
+["ZTE","A56","4GB / 128GB","5,000mAh, 10W","6.75\" IPS, 90Hz",1500,80,1700],
+["ZTE","A76","4GB / 128GB","5,000mAh","6.75\" IPS, 90Hz",2000,90,null],
+["ZTE","A57","4GB / 64GB","5,000mAh, 22.5W","6.75\" HD+, 120Hz",1500,100,null],
+["REALME","C100i","4GB / 64GB","7,000mAh, 15W","6.8\" HD+, 120Hz",1500,110,null]];
+var B="All",brands=["All"].concat(D.map(function(d){return d[0]}).filter(function(v,i,a){return a.indexOf(v)==i}));
+var f=function(n){return n.toLocaleString("en-KE")};
+function chips(){document.getElementById("chips").innerHTML=brands.map(function(b){return '<button class="chip'+(b==B?' on':'')+'" onclick="B=\''+b+'\';chips();draw()">'+b+'</button>'}).join("")}
+function draw(){var q=document.getElementById("q").value.toLowerCase();
+var r=D.filter(function(d){return (B=="All"||d[0]==B)&&(d.join(" ").toLowerCase().indexOf(q)>-1)});
+document.getElementById("count").textContent=D.length+" devices available with flexible financing";
+document.getElementById("g").innerHTML=r.length?r.map(function(d){var s=d[7];
+return '<div class="card"><div class="br">'+d[0]+'</div><div class="nm"><span>'+d[1]+'</span>'+(s?'<span class="tag">SEASONAL SALE</span>':'')+'</div>'+
+'<div class="sp"><b>'+d[2]+'</b><br>Battery: '+d[3]+'<br>Display: '+d[4]+'</div>'+
+'<div class="pr"><div><small>Deposit</small>'+(s?'<span class="old">KES '+f(s)+'</span>':'')+'<span class="dep '+(s?'s':'n')+'">KES '+f(d[5])+'</span>'+(s?'<div class="off">'+Math.round((s-d[5])/s*1000)/10+'% off</div>':'')+'</div>'+
+'<div class="dl"><small>Daily payment</small>KES '+f(d[6])+'</div></div><div class="orow"><a class="btn" href="https://eazy2get.com/?ref=REF011" target="_blank" rel="noopener" onclick="cp()">Order now</a><span class="rf">USE REF011<br>as referral</span></div></div>'}).join(""):'<div class="empty">No devices match your search.</div>'}
+function cp(){try{navigator.clipboard.writeText("REF011")}catch(e){}var t=document.getElementById("t");t.className="on";setTimeout(function(){t.className=""},4000)}
+chips();draw();
+</script></body></html>
