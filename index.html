@@ -9,6 +9,10 @@
 body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 header{background:var(--hd);color:#fff;padding:22px 16px}
 header h1{margin:0;font-size:24px}header p{margin:4px 0 0;opacity:.8;font-size:14px}
+.top-actions{display:flex;justify-content:flex-end;margin-top:10px;flex-wrap:wrap;gap:10px}
+.wa-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25d366;color:#fff;text-decoration:none;font-weight:700;padding:10px 16px;border-radius:999px;box-shadow:0 8px 16px rgba(37,211,102,.25);font-size:14px}
+.wa-btn:hover{filter:brightness(1.04)}
+.wa-btn .wa-icon{font-size:18px;line-height:1}
 .wrap{max-width:1000px;margin:0 auto;padding:14px}
 .bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 input{flex:1 1 200px;padding:10px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:15px}
@@ -34,13 +38,13 @@ a.btn{display:block;text-align:center;background:var(--red);color:#fff;text-deco
 .hrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}.hrow a.btn.h{margin-top:0}.hrow .rf{color:#fff;background:transparent;border-color:#fff}
 footer{text-align:center;color:var(--mu);font-size:12px;padding:16px}
 </style></head><body>
-<header><div style="font-size:13px;font-weight:700;letter-spacing:1px;color:var(--or);margin-bottom:4px">BOSETECH PHONE PLUG</div><h1>Available Smartphones</h1><p id="count"></p><div class="hrow"><a class="btn h" href="https://eazy2get.com/?ref=REF011" target="_blank" rel="noopener" onclick="cp()">Place your order</a><span class="rf">USE REF011 as referral</span></div></header>
+<header><div style="font-size:13px;font-weight:700;letter-spacing:1px;color:var(--or);margin-bottom:4px">BOSETECH PHONE PLUG</div><h1>Available Smartphones</h1><p id="count"></p><div class="top-actions"><a class="wa-btn" href="https://wa.me/254790776575?text=Hi%20Bosetech%20Phone%20Plug%2C%20I%20want%20to%20inquire%20about%20a%20device." target="_blank" rel="noopener" aria-label="Chat on WhatsApp for device inquiries"><span class="wa-icon">WhatsApp</span> 0790776575</a></div><div class="hrow"><a class="btn h" href="https://eazy2get.com/?ref=REF011" target="_blank" rel="noopener" onclick="cp()">Place your order</a><span class="rf">USE REF011 as referral</span></div></header>
 <div class="wrap">
 <div class="bar"><input id="q" placeholder="Search device, e.g. A3X or 128GB" oninput="draw()"><div class="chips" id="chips"></div></div>
 <div class="grid" id="g"></div>
 </div>
 <div id="t">Referral code REF011 copied. Paste it at checkout if it is not filled in automatically.</div>
-<footer>Deposit and daily payment are in KES. Prices and stock subject to change. Contact us to reserve your device.</footer>
+<footer><div style="margin-bottom:10px">Need help or want to inquire about any device? <a class="wa-btn" href="https://wa.me/254790776575?text=Hi%20Bosetech%20Phone%20Plug%2C%20I%20need%20help%20or%20inquiry%20about%20a%20device." target="_blank" rel="noopener" aria-label="WhatsApp help and inquiry">WhatsApp: 0790776575</a></div>Deposit and daily payment are in KES. Prices and stock subject to change. Contact us to reserve your device.</footer>
 <script>
 var D=[
 ["SAFARICOM","Neon Ultra 2","4GB / 64GB","3,750mAh (removable)","6.5\" IPS LCD",1000,55,null],
@@ -60,15 +64,16 @@ var D=[
 ["REALME","C100i","4GB / 64GB","7,000mAh, 15W","6.8\" HD+, 120Hz",1500,110,null]];
 var B="All",brands=["All"].concat(D.map(function(d){return d[0]}).filter(function(v,i,a){return a.indexOf(v)==i}));
 var f=function(n){return n.toLocaleString("en-KE")};
-function chips(){document.getElementById("chips").innerHTML=brands.map(function(b){return '<button class="chip'+(b==B?' on':'')+'" onclick="B=\''+b+'\';chips();draw()">'+b+'</button>'}).join("")}
+function chips(){document.getElementById("chips").innerHTML=brands.map(function(b){return '<button class="chip'+(b==B?' on':'')+'" onclick="B='+(b=='All'?'\"All\"':'\''+b+'\'')+';chips();draw()">'+b+'</button>'}).join("")}
 function draw(){var q=document.getElementById("q").value.toLowerCase();
 var r=D.filter(function(d){return (B=="All"||d[0]==B)&&(d.join(" ").toLowerCase().indexOf(q)>-1)});
-document.getElementById("count").textContent=D.length+" devices available with flexible financing";
+var c=r.length===1?" device available with flexible financing":" devices available with flexible financing";
+document.getElementById("count").textContent=r.length+c;
 document.getElementById("g").innerHTML=r.length?r.map(function(d){var s=d[7];
 return '<div class="card"><div class="br">'+d[0]+'</div><div class="nm"><span>'+d[1]+'</span>'+(s?'<span class="tag">SEASONAL SALE</span>':'')+'</div>'+
 '<div class="sp"><b>'+d[2]+'</b><br>Battery: '+d[3]+'<br>Display: '+d[4]+'</div>'+
 '<div class="pr"><div><small>Deposit</small>'+(s?'<span class="old">KES '+f(s)+'</span>':'')+'<span class="dep '+(s?'s':'n')+'">KES '+f(d[5])+'</span>'+(s?'<div class="off">'+Math.round((s-d[5])/s*1000)/10+'% off</div>':'')+'</div>'+
 '<div class="dl"><small>Daily payment</small>KES '+f(d[6])+'</div></div><div class="orow"><a class="btn" href="https://eazy2get.com/?ref=REF011" target="_blank" rel="noopener" onclick="cp()">Order now</a><span class="rf">USE REF011<br>as referral</span></div></div>'}).join(""):'<div class="empty">No devices match your search.</div>'}
-function cp(){try{navigator.clipboard.writeText("REF011")}catch(e){}var t=document.getElementById("t");t.className="on";setTimeout(function(){t.className=""},4000)}
+function cp(){var code="REF011";try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(code)}else{var a=document.createElement("textarea");a.value=code;a.setAttribute("readonly"," ");a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.focus();a.select();document.execCommand("copy");a.remove()}}catch(e){}var t=document.getElementById("t");t.className="on";setTimeout(function(){t.className=""},4000)}
 chips();draw();
 </script></body></html>
